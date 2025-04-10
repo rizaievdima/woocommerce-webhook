@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Replace this with your WooCommerce webhook secret
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
