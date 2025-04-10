@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const crypto = require("crypto");
 const dotenv = require("dotenv");
 
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
 app.use(
-    bodyParser.json({
+    express.json({
         verify: (req, res, buf) => {
             req.rawBody = buf;
         },
@@ -20,6 +20,7 @@ app.use(
 );
 
 app.post("/webhook", (req, res) => {
+    console.log("Raw Body:", req.rawBody);
     const signature = req.headers["x-wc-webhook-signature"];
     const payload = req.rawBody;
 
