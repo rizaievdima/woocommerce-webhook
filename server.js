@@ -17,8 +17,8 @@ app.use(bodyParser.json({ verify: verifySignature }));
 
 // Verify WooCommerce webhook signature (optional but recommended)
 function verifySignature(req, res, buf) {
-    console.log("Verifying signature...", req);
-    console.log("Verifying signature buf...", buf);
+    // console.log("Verifying signature...", req);
+    // console.log("Verifying signature buf...", buf);
     const signature = req.headers["x-wc-webhook-signature"];
 
     if (!signature || !WEBHOOK_SECRET) return;
